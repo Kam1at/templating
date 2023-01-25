@@ -1,4 +1,5 @@
 {% load static %}
+{% load mediapath from template_filters %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,6 +8,12 @@
     <title>Skystore</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
+<style>
+        body {
+            background-image: url("{% mediapath '1.jpg' %}");
+<!--            background-image: url("{{ '1.jpg'|mediapath }}");-->
+             }
+</style>
 <body>
 {% include 'templating/includes/inc_main_menu.html' %}
 {% block content %}
