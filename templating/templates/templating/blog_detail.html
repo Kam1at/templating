@@ -1,0 +1,22 @@
+{% extends 'templating/base.html'%}
+{% block content %}
+<div class="'container">
+    <div class="col-4" style="margin:0 auto;">
+        <div class="card" style="margin:0 auto;">
+            <img src="{{object.image.url}}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{object.heading}}</h5>
+                <p class="card-text">{{object.content}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{object.create_date}}</li>
+                <li class="list-group-item">{{object.view}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="{% url 'templating:blog_update' object.pk object.slug %}" class="btn btn-info">Update</a>
+                <a href="{% url 'templating:blog_delete' object.pk object.slug %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'templating:blog' %}" class="btn btn-primary">< Back</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
